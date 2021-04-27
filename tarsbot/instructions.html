@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TarsBot Reference</title>
+        <link rel="stylesheet" href="docupage.css"> 
+    </head>
+    <body>
+        <hr>
+        <h2>Instruction Reference</h2>
+        <p>Click on any of the following links to go straight to the information for that instruction.</p>
+        <p>
+            <table border="1" cellpadding="0" width="450">
+                <tbody>
+                    <tr>
+                        <td width="7%" height="25">
+                            <center>
+                                <a href="#LDA">LDA</a>
+                            </center>
+                        </td>
+                        <td width="7%">
+                            <center>
+                                <a href="#BUT">BUT</a>
+                            </center>
+                        </td>
+                        <td width="7%">
+                            <center>
+                                <a href="#BUP">BUP</a>
+                            </center>
+                        </td>
+                        <td width="7%">
+                            <center>
+                                <a href="#PHA">PHA</a>
+                            </center>
+                        </td>
+                        <td width="7%">
+                            <center>
+                                <a href="#PDA">PDA</a>
+                            </center>
+                        </td>
+                        <td width="7%">
+                            <center>
+                                <a href="#PCA">PCA</a>
+                            </center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </p>
+        <section>
+            <h3>
+                <a name="LDA"></a>
+                LDA - Load Accumulator
+            </h3>
+            <p>Loads a byte into the A registry.</p>
+            <table height="50" cellspacing="0" cellpadding="0" width="450" border="1">
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>V</a>
+                    </td>
+                    <td width="45">
+                        <a>Overflow Flag</a>
+                    </td>
+                    <td width="50">
+                        Set if A > 0xFF
+                    </td>
+                </tr>
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>Z</a>
+                    </td>
+                    <td width="45">
+                        <a>Zero Flag</a>
+                    </td>
+                    <td width="50">
+                        Set if A = 0
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>
+                <a name="BUT"></a>
+                BUT - Ban User Temporarily
+            </h3>
+            <p>Bans user temporarily. User is specified with their ID at the given memory address. User IDs are 64 bit (8 bytes) unsigned numeric values. Length of ban determined by A registry (Days).</p>
+            <table height="50" cellspacing="0" cellpadding="0" width="450" border="1">
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>V</a>
+                    </td>
+                    <td width="45">
+                        <a>Overflow Flag</a>
+                    </td>
+                    <td width="50">
+                        Not affected
+                    </td>
+                </tr>
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>Z</a>
+                    </td>
+                    <td width="45">
+                        <a>Zero Flag</a>
+                    </td>
+                    <td width="50">
+                        Set if user was not found
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>
+                <a name="BUP"></a>
+                BUP - Ban User Permanently
+            </h3>
+            <p>Bans user permanently. User is specified with their ID at the given memory address. User IDs are 64 bit (8 bytes) unsigned numeric values.</p>
+            <table height="50" cellspacing="0" cellpadding="0" width="450" border="1">
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>V</a>
+                    </td>
+                    <td width="45">
+                        <a>Overflow Flag</a>
+                    </td>
+                    <td width="50">
+                        Set if A > 0xFF
+                    </td>
+                </tr>
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>Z</a>
+                    </td>
+                    <td width="45">
+                        <a>Zero Flag</a>
+                    </td>
+                    <td width="50">
+                        Set if A = 0
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>
+                <a name="PHA"></a>
+                PHA - Print Hex A
+            </h3>
+            <p>Prints the A registry to the current channel formatted in hex.</p>
+            <table height="50" cellspacing="0" cellpadding="0" width="450" border="1">
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>V</a>
+                    </td>
+                    <td width="45">
+                        <a>Overflow Flag</a>
+                    </td>
+                    <td width="50">
+                        Not affected
+                    </td>
+                </tr>
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>Z</a>
+                    </td>
+                    <td width="45">
+                        <a>Zero Flag</a>
+                    </td>
+                    <td width="50">
+                        Not affected
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>
+                <a name="PDA"></a>
+                PDA - Print Decimal A
+            </h3>
+            <p>Prints the A registry to the current channel formatted in decimal.</p>
+            <table height="50" cellspacing="0" cellpadding="0" width="450" border="1">
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>V</a>
+                    </td>
+                    <td width="45">
+                        <a>Overflow Flag</a>
+                    </td>
+                    <td width="50">
+                        Not affected
+                    </td>
+                </tr>
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>Z</a>
+                    </td>
+                    <td width="45">
+                        <a>Zero Flag</a>
+                    </td>
+                    <td width="50">
+                        Not affected
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>
+                <a name="PCA"></a>
+                PCA - Print Char A
+            </h3>
+            <p>Encode the byte in the A registry (UTF8) into a char and send it to the current channel. Because the A registry is only a single byte and unicode characters are 2 bytes, you can only print characters that range from 0x0000 to 0x00FF. If you want to print the full range of characters, please refer to PCM.</p>
+            <table height="50" cellspacing="0" cellpadding="0" width="450" border="1">
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>V</a>
+                    </td>
+                    <td width="45">
+                        <a>Overflow Flag</a>
+                    </td>
+                    <td width="50">
+                        Not affected
+                    </td>
+                </tr>
+                <tr>
+                    <td align="MIDDLE" width="5%" height="25">
+                        <a>Z</a>
+                    </td>
+                    <td width="45">
+                        <a>Zero Flag</a>
+                    </td>
+                    <td width="50">
+                        Not affected
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </body>
+</html>
+

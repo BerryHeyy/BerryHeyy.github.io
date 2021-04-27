@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Introduction</title>
+        <link rel="stylesheet" href="docupage.css"> 
+    </head>
+    <body>
+        <hr>
+        <h1>Introduction</h1>
+        <p>
+            This is the documentation page for TarsBot. The assembly language used for the bot was inspired by the MOS 
+            6502, some would say the most influential piece of electronics in the development of the modern computer.
+            It's very simplisitc but yet still very powerful, and a great starting point to start learning about 
+            computer architecture. 
+        </p>
+        <h2>Architecture</h2>
+        <p>
+            The TARS microprocessor is a simple virtualized 8 bit CPU environment with only a few internal 
+            registers capable of addressing at most 64Kb of memory. The CPU is
+            <a href="https://en.wikipedia.org/wiki/Endianness" target="_blank">little endian</a>.
+        </p>
+        <p>
+            The first 256 bytes of memory (0x0000 to 0x00FF) is referred to as 'Zero Page' and is the focus of 
+            a number of special addressing modes that result in shorter (and quicker) instructions or allow indirect 
+            access to memory. (Just like the 6502) 0x0100 to 0x01FF is reserved for the system stack.
+        </p>
+        <p>
+            The last bit of reserved memory is the very last 2 bytes of memory (0xFFFE to 0xFFFF) which must be 
+            programmed with the addresses of the power on reset location. Which is where the program starts in 
+            memory when you power the CPU. This is defaulted to 0x0200 and can be changed with the --rl=0x0000 argument (currently unimplemented).
+        </p>
+        <h2>The Registers</h2>
+        <h3>Program Counter</h3>
+        <p>
+            The program counter is a 16 bit register which points to the next instruction to be executed. This value is automatically modified.
+        </p>
+        <p>
+            The value of the program counter can be manually modified by executing a jump.
+        </p>
+        <h3>Stack Pointer</h3>
+        <p>
+            The processor supports a 256 byte stack located between 0x0100 to 0x01FF. The stack pointer is an 8 bit
+            register and holds the low 8 bits of the next free location on the stack. The location of the stack is fixed
+            and cannot be moved.
+        </p>
+        <p>
+            Pushing bytes to the stack causes the stack pointer to be decremented. Pulling causes it to be incremented.
+        </p>
+        <p>
+            The CPU does not detect if the stack is overflowed by excessive pushing or pulling operations and will most 
+            likely result in the program crashing.
+        </p>
+        <h3>Accumulator</h3>
+        <p>
+            The 8 bit accumulator is used for temporary storage. It is also the register all arithmetic and logical 
+            operations operate on. 
+        </p>
+        <h3>Index Register X</h3>
+        <p>
+            The 8 bit index register is most commonly used to hold counters or offsets for accessing memory.
+        </p>
+        <h3>Index Register Y</h3>
+        <p>
+            The Y register is similar to the X register in that it is available for holding counter or offsets 
+            memory access and supports the same set of memory load, save and compare operations as wells as increments 
+            and decrements.
+        </p>
+        <h2>Instructions (Op-Codes)</h2>
+        <p>
+            <a href="instructions.html">Instructions page</a>. (Currently incomplete)
+        </p>
+    </body>
+</html>
